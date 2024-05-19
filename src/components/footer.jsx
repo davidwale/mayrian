@@ -1,13 +1,15 @@
 import React from 'react';
+import { FaFacebookSquare, FaPinterestSquare } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
+
 
 const Footer = () => {
   return (
       <footer className="bg-gray-900 border border-neutral-950 text-gray-400 py-10 hexagon-pattern">
-          <div className="absolute inset-0 bg-black-900"></div>
           <hr className='w-full' />
-          <div className='flex flex-row'>
+          <div className='flex flex-row mx-40'>
               <div class="vertical-line"></div>
-      <div className="container mx-auto flex flex-col md:flex-row justify-between px-40 mt-20">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between px-40 my-20">
         <div className="w-1/3 space-y-4 text-sm h-full">
           <p>
             Lorem ipsum dolor sit amet consectetur. Metus convallis nulla volutpat tempus. Porta pretium purus risus sed posuere. Lorem ipsum dolor sit amet consectetur. Metus convallis nulla volutpat tempus. Porta pretiu
@@ -38,23 +40,34 @@ const Footer = () => {
             <li><a href="#" className="hover:text-white">Terms & Conditions</a></li>
             <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
           </ul>
-          <div className="flex space-x-4 mt-4">
-            <a href="#" className="text-white hover:text-blue-600"><i className="fab fa-facebook-f"></i></a>
-            <a href="#" className="text-white hover:text-red-600"><i className="fab fa-pinterest-p"></i></a>
-            <a href="#" className="text-white hover:text-pink-600"><i className="fab fa-instagram"></i></a>
-            <a href="#" className="text-white hover:text-gray-600"><i className="fab fa-houzz"></i></a>
-          </div>
+          
         </div>
               </div>
-              <div>
-                  
-              </div>
+             <div className='flex flex-col overflow-hidden justify-items-center'>
+                <hr className="h-full bg-white w-[1px] origin-center ml-6" /> 
+                <div className="flex h-full flex-col border gap-3 py-4 px-3 text-2xl">
+                    <a href="#" className="text-white hover:text-blue-600">
+                    <FaFacebookSquare />
+                    </a>
+                    <a href="#" className="text-white hover:text-red-600">
+                    <FaPinterestSquare />
+                    </a>
+                    <a href="#" className="text-white hover:text-pink-600">
+                    <img src='/images/ig-icon.png' className='w-5' alt='ig-icon' />
+                    </a>
+                    <a href="#" className="text-white hover:text-gray-600">
+                    <FaSquareXTwitter />
+                    </a>
+                </div>
+                <hr className="h-full bg-white w-[1px] origin-center ml-6" /> 
+                </div>
+
             </div>
-          <div className="mt-8 pt-4 flex flex-row text-gray-600">
-              <hr className='w-full mt-3' />
-              <p className='w-full m-0 p-0 text-center'>| &copy;2024. All rights reserved | Designed by <a href="#" className="text-green-500 hover:underline">Mayrian</a> |</p>
-              <hr className='w-full mt-3' />
-      </div>
+          <div className="flex flex-row text-gray-600 relative">
+            <hr className='w-full h-px bg-gray-200' />
+            <p className='w-full mb-2 p-0 text-center -mt-3 relative z-10'>| &copy;2024. All rights reserved | Designed by <a href="#" className="text-green-500 hover:underline">Mayrian</a> |</p>
+            <hr className='w-full h-px bg-gray-200' />
+          </div>
     </footer>
   );
 };
