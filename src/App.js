@@ -3,7 +3,7 @@ import Home from './pages/Home/Home';
 
 function App() {
   return (
-    <div className='gt-walsheim-trial'>
+    <div className='App'>
      <Home />
     </div>
   );

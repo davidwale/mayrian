@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
+/* @font-face {
   font-family: 'gt-walsheim-trial';
   src: url('../public/fonts/gt-walsheim-font-family/GT-Walsheim-Regular-Trial-BF651b7fc71a47d.otf') format('truetype');
 }
 
 .gt-walsheim-trial {
   font-family: 'gt-walsheim-trial', sans-serif;
-}
+} */

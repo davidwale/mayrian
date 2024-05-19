@@ -52,7 +52,7 @@ const Header = () => {
           transition={{ duration: 1 }}
         />
       </AnimatePresence>
-      <div className="absolute inset-0 bg-black bg-opacity-50 flex pt-72 justify-between p-8">
+      <div className="absolute inset-0 bg-black bg-opacity-50 flex pt-64 justify-between p-8">
         <div className="text-white">
           <motion.div
             key={currentIndex}
@@ -61,8 +61,8 @@ const Header = () => {
             exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-4xl font-bold">Project Tile</h1>
-            <p className="w-[400px]">
+            <h1 className="2xl:text-8xl text-6xl font-medium">Project Tile</h1>
+            <p className="w-[400px] mt-32 font-light">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mollis mollis enim,
               at mattis metus consectetur eget. Nulla tempor condimentum eros, non eleifend leo venenatis et.
             </p>
@@ -90,7 +90,7 @@ const Header = () => {
             <p>{currentImage.text}</p>
           </motion.div>
           <motion.div className="mt-40">
-            <h1 className="text-5xl float-right font-bold">{currentImage.id}</h1>
+            <h1 className="2xl:text-8xl text-6xl float-right font-medium">{currentImage.id}</h1>
           </motion.div>
         </div>
       </div>
