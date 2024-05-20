@@ -11,9 +11,8 @@ const images = [
 const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const [isRightScrolledToBottom, setIsRightScrolledToBottom] = useState(false);
-  const leftImageRef = useRef(null);
   const rightTextRef = useRef(null);
+  const leftImageRef = useRef(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,26 +21,24 @@ const Testimonial = () => {
     return () => clearInterval(interval);
   }, []);
 
- const handleScroll = () => {
-  const leftImageRect = leftImageRef.current.getBoundingClientRect();
-  const isLeftImageFullyInView = leftImageRect.top >= 0 && leftImageRect.bottom <= window.innerHeight;
-  const rightScrollTop = rightTextRef.current.scrollTop;
-  const maxRightScrollTop = rightTextRef.current.scrollHeight - rightTextRef.current.clientHeight;
-
-  if (isLeftImageFullyInView && rightScrollTop < maxRightScrollTop) {
-    leftImageRef.current.style.position = 'static';
-    leftImageRef.current.style.top = 0;
-  } else {
-    leftImageRef.current.style.position = 'sticky';
-  }
-
-  setIsRightScrolledToBottom(rightScrollTop >= maxRightScrollTop);
-
-  rightTextRef.current.scrollTop = rightScrollTop;
-};
-
-
   useEffect(() => {
+    const handleScroll = () => {
+      const rightSection = rightTextRef.current;
+      const leftSection = leftImageRef.current;
+
+      const rightScrollTop = rightSection.scrollTop;
+      const maxRightScrollTop = rightSection.scrollHeight - rightSection.clientHeight;
+
+      if (rightScrollTop >= maxRightScrollTop) {
+        // When right section has fully scrolled, make the left section scroll with the page
+        leftSection.style.position = 'relative';
+      } else {
+        // While right section is scrolling, keep the left section fixed
+        leftSection.style.position = 'sticky';
+        leftSection.style.top = '0';
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -54,22 +51,18 @@ const Testimonial = () => {
   };
 
   return (
-    <div className="flex px-10 py-4">
-      <div className="w-1/2 h-full" style={{ position: 'relative' }}>
-        <div ref={leftImageRef} style={{ position: isRightScrolledToBottom ? 'fixed' : 'static', width: '100%', height: '100%', overflow: 'hidden' }}>
+    <div className="flex px-10 py-4" style={{ height: '200vh' }}>
+      <div ref={leftImageRef} className="w-1/2 h-screen sticky top-0" style={{ height: '100vh' }}>
+        <div style={{ width: '100%', height: '100%', overflow: 'hidden' }}>
           <img
-            src="/images/health-bg.png"
-            alt="Fixed"
+            src={currentImage.src}
+            alt={currentImage.text}
             className="w-full h-full object-cover"
           />
         </div>
       </div>
-      <div className="w-1/2 h-full" ref={rightTextRef}>
-        <div
-          className="relative z-10 p-8 space-y-8 text-black"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
+      <div ref={rightTextRef} className="w-1/2 h-screen overflow-y-auto">
+        <div className="relative z-10 p-8 space-y-8 text-black">
           <ul>
             {Array.from({ length: 20 }, (_, i) => (
               <li key={i} className="mb-4">

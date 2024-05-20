@@ -104,7 +104,7 @@ const Header = () => {
               }`}
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.5 }}
             />
           ))}
         </div>
