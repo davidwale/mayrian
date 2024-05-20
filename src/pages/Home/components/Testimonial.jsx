@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { IoArrowForwardCircleOutline } from "react-icons/io5";
 
 const images = [
   { id: 1, src: '/images/Header-bg.png', text: 'Private Property' },
@@ -11,13 +12,14 @@ const images = [
 const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [iconPosition, setIconPosition] = useState({ x: 0, y: 0 });
   const rightTextRef = useRef(null);
   const leftImageRef = useRef(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 10000); // Change image every 10 seconds
+    }, 10000); 
     return () => clearInterval(interval);
   }, []);
 
@@ -30,10 +32,8 @@ const Testimonial = () => {
       const maxRightScrollTop = rightSection.scrollHeight - rightSection.clientHeight;
 
       if (rightScrollTop >= maxRightScrollTop) {
-        // When right section has fully scrolled, make the left section scroll with the page
         leftSection.style.position = 'relative';
       } else {
-        // While right section is scrolling, keep the left section fixed
         leftSection.style.position = 'sticky';
         leftSection.style.top = '0';
       }
@@ -43,6 +43,16 @@ const Testimonial = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleImageHover = (e) => {
+    setIsHovered(true);
+    setIconPosition({ x: e.clientX, y: e.clientY });
+  };
+
+
+  const handleImageLeave = () => {
+    setIsHovered(false);
+  };
+
   const currentImage = images[currentIndex];
   const progressBarWidth = ((currentIndex + 1) / images.length) * 100;
 
@@ -51,27 +61,94 @@ const Testimonial = () => {
   };
 
   return (
-    <div className="flex px-10 py-4" style={{ height: '200vh' }}>
+    <div className="flex px-10 py-4 top-bg" style={{ height: '200vh' }}>
       <div ref={leftImageRef} className="w-1/2 h-screen sticky top-0" style={{ height: '100vh' }}>
         <div style={{ width: '100%', height: '100%', overflow: 'hidden' }}>
-          <img
-            src={currentImage.src}
-            alt={currentImage.text}
+          <motion.img
+            src="/images/Rectangle-img.png"
+            alt=""
             className="w-full h-full object-cover"
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
           />
         </div>
       </div>
-      <div ref={rightTextRef} className="w-1/2 h-screen overflow-y-auto">
-        <div className="relative z-10 p-8 space-y-8 text-black">
-          <ul>
-            {Array.from({ length: 20 }, (_, i) => (
-              <li key={i} className="mb-4">
-                Scrollable Text Item {i + 1}
-              </li>
-            ))}
-          </ul>
+      <div ref={rightTextRef} className="w-1/2 overflow-y-auto scrollbar-hide">
+        <div className="relative z-10 p-8 space-y-8 text-white">
+          <h1 className='text-3xl'>
+            We are dedicated to addressing 
+            the evolving requirements of the 
+            world's most dynamic companies.
+          </h1>
+          <div className='flex flex-row py-5 border-t border-white hover:cursor-pointer'>
+            <div>
+              <p>1</p>
+            </div>
+            <div className='w-full'>
+              <p className='text-xs pl-7 satoshi-regular'>
+                At Creon, we handpick cutting-edge AI projects and 
+                offer our community and token holders early access 
+                and investment opportunities. Our community 
+                actively contributes to the growth and profitability of 
+                these projects, creating a dynamic ecosystem of 
+                innovation and shared success.
+              </p>
+            </div>
+          </div>
+           <div className='flex flex-row py-5 border-t border-white hover:cursor-pointer'>
+            <div>
+              <p>1</p>
+            </div>
+            <div className='w-full'>
+              <p className='text-xs pl-7 satoshi-regular'>
+                At Creon, we handpick cutting-edge AI projects and 
+                offer our community and token holders early access 
+                and investment opportunities. Our community 
+                actively contributes to the growth and profitability of 
+                these projects, creating a dynamic ecosystem of 
+                innovation and shared success.
+              </p>
+            </div>
+          </div>
+           <div className='flex flex-row py-5 border-t border-white hover:cursor-pointer'>
+            <div>
+              <p>1</p>
+            </div>
+            <div className='w-full'>
+              <p className='text-xs pl-7 satoshi-regular'>
+                At Creon, we handpick cutting-edge AI projects and 
+                offer our community and token holders early access 
+                and investment opportunities. Our community 
+                actively contributes to the growth and profitability of 
+                these projects, creating a dynamic ecosystem of 
+                innovation and shared success.
+              </p>
+            </div>
+          </div>
+           <div className='flex flex-row py-5 border-t border-white hover:cursor-pointer'>
+            <div>
+              <p>1</p>
+            </div>
+            <div className='w-full'>
+              <p className='text-xs pl-7 satoshi-regular'>
+                At Creon, we handpick cutting-edge AI projects and 
+                offer our community and token holders early access 
+                and investment opportunities. Our community 
+                actively contributes to the growth and profitability of 
+                these projects, creating a dynamic ecosystem of 
+                innovation and shared success.
+              </p>
+            </div>
+          </div>
         </div>
-        <div className="relative w-full h-screen overflow-hidden">
+        <div
+          className="relative w-full h-screen overflow-hidden hover:cursor-pointer"
+          onMouseMove={handleImageHover}
+          onMouseLeave={handleImageLeave}
+          onClick={handleNextImage}
+        >
           <AnimatePresence>
             <motion.img
               key={currentImage.src}
@@ -84,35 +161,28 @@ const Testimonial = () => {
               transition={{ duration: 1 }}
             />
           </AnimatePresence>
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 50 }}
-              transition={{ duration: 0.5 }}
-              className="text-white text-center"
-            >
-              <h1 className="text-4xl font-bold">{currentImage.text}</h1>
-            </motion.div>
-            <div className="absolute bottom-0 left-0 w-full h-2 bg-gray-800">
-              <motion.div
-                className="h-full bg-yellow-500"
-                style={{ width: `${progressBarWidth}%` }}
-                transition={{ duration: 10, ease: 'linear' }}
-              />
+          <div className="absolute bottom-0 inset-0 bg-black px-6 bg-opacity-50 flex flex-col">
+            <div className='absolute bottom-10 w-11/12'>
+              <div className="flex">
+                <p className="text-xl text-white mr-4">{currentImage.id}</p>
+                <div className="w-full h-0.5 flex items-center mt-3 bg-gray-800">
+                  <motion.div
+                    className="h-1 bg-white"
+                    style={{ width: `${progressBarWidth}%` }}
+                    transition={{ duration: 5, ease: 'linear' }}
+                  />
+                </div>
+                <h1 className="text-3xl text-white ml-4">{currentImage.id}</h1>
+              </div>
+              <p className="text-white">{currentImage.text}</p>
             </div>
             {isHovered && (
-              <motion.button
-                onClick={handleNextImage}
-                className="absolute bg-white p-2 rounded-full"
-                style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+              <div
+                className="absolute z-50"
+                style={{ left: iconPosition.x - 640, top: iconPosition.y - 50 }}
               >
-                Next
-              </motion.button>
+                <IoArrowForwardCircleOutline size={50} color="grey" />
+              </div>
             )}
           </div>
         </div>
