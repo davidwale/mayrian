@@ -2,14 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 const services = [
-  { id: 1, src: '/images/Header-bg.png', title: 'Private Property' },
-  { id: 2, src: '/images/education-bg.png', title: 'Education Purpose' },
-  { id: 3, src: '/images/marketplace-bg.png', title: 'MarketPlace' },
-  { id: 4, src: '/images/health-bg.png', title: 'Health Facility' },
-  { id: 5, src: '/images/Header-bg.png', title: 'Private Property' },
-  { id: 6, src: '/images/education-bg.png', title: 'Education Purpose' },
-  { id: 7, src: '/images/marketplace-bg.png', title: 'MarketPlace' },
-  { id: 8, src: '/images/health-bg.png', title: 'Health Facility' },
+  { id: 1, src: '/images/service-img-1.png', title: 'Private Property' },
+  { id: 2, src: '/images/service-img-2.png', title: 'Education Purpose' },
+  { id: 3, src: '/images/service-img-3.png', title: 'MarketPlace' },
+  { id: 4, src: '/images/service-img-4.png', title: 'Health Facility' },
+  { id: 4, src: '/images/service-img-5.png', title: 'Health Facility' },
 ];
 
 const Services = () => {
@@ -63,7 +60,7 @@ const Services = () => {
             transition={{ duration: 5, ease: 'linear' }}
           />
         </div>
-        <p className='text-white'>4</p>
+        <p className='text-white'>3</p>
       </div>
     </div>
   );

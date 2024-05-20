@@ -67,7 +67,7 @@ const Testimonial = () => {
           <motion.img
             src="/images/Rectangle-img.png"
             alt=""
-            className="w-full h-full object-cover"
+            className="w-11/12 h-full object-cover"
             initial={{ opacity: 0, scale: 1.1 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
@@ -88,12 +88,10 @@ const Testimonial = () => {
             </div>
             <div className='w-full'>
               <p className='text-xs pl-7 satoshi-regular'>
-                At Creon, we handpick cutting-edge AI projects and 
-                offer our community and token holders early access 
-                and investment opportunities. Our community 
-                actively contributes to the growth and profitability of 
-                these projects, creating a dynamic ecosystem of 
-                innovation and shared success.
+                Lorem ipsum dolor sit amet consectetur. Metus convallis nulla volutpat tempus.
+                Porta pretium purus risus sed posuere. Elit odio tellus eget duis facilisis in
+                lorem. Parturient et ut quis donec mattis at rhoncus morbi. Neque turpis non orci
+                pulvinar. Luctus proin.
               </p>
             </div>
           </div>
@@ -103,12 +101,10 @@ const Testimonial = () => {
             </div>
             <div className='w-full'>
               <p className='text-xs pl-7 satoshi-regular'>
-                At Creon, we handpick cutting-edge AI projects and 
-                offer our community and token holders early access 
-                and investment opportunities. Our community 
-                actively contributes to the growth and profitability of 
-                these projects, creating a dynamic ecosystem of 
-                innovation and shared success.
+                Lorem ipsum dolor sit amet consectetur. Metus convallis nulla volutpat tempus.
+                Porta pretium purus risus sed posuere. Elit odio tellus eget duis facilisis in
+                lorem. Parturient et ut quis donec mattis at rhoncus morbi. Neque turpis non orci
+                pulvinar. Luctus proin.
               </p>
             </div>
           </div>
@@ -118,12 +114,10 @@ const Testimonial = () => {
             </div>
             <div className='w-full'>
               <p className='text-xs pl-7 satoshi-regular'>
-                At Creon, we handpick cutting-edge AI projects and 
-                offer our community and token holders early access 
-                and investment opportunities. Our community 
-                actively contributes to the growth and profitability of 
-                these projects, creating a dynamic ecosystem of 
-                innovation and shared success.
+                Lorem ipsum dolor sit amet consectetur. Metus convallis nulla volutpat tempus.
+                Porta pretium purus risus sed posuere. Elit odio tellus eget duis facilisis in
+                lorem. Parturient et ut quis donec mattis at rhoncus morbi. Neque turpis non orci
+                pulvinar. Luctus proin.
               </p>
             </div>
           </div>
@@ -133,12 +127,10 @@ const Testimonial = () => {
             </div>
             <div className='w-full'>
               <p className='text-xs pl-7 satoshi-regular'>
-                At Creon, we handpick cutting-edge AI projects and 
-                offer our community and token holders early access 
-                and investment opportunities. Our community 
-                actively contributes to the growth and profitability of 
-                these projects, creating a dynamic ecosystem of 
-                innovation and shared success.
+                Lorem ipsum dolor sit amet consectetur. Metus convallis nulla volutpat tempus.
+                Porta pretium purus risus sed posuere. Elit odio tellus eget duis facilisis in
+                lorem. Parturient et ut quis donec mattis at rhoncus morbi. Neque turpis non orci
+                pulvinar. Luctus proin.
               </p>
             </div>
           </div>
@@ -178,7 +170,7 @@ const Testimonial = () => {
             </div>
             {isHovered && (
               <div
-                className="absolute z-50"
+                className="absolute z-40"
                 style={{ left: iconPosition.x - 640, top: iconPosition.y - 50 }}
               >
                 <IoArrowForwardCircleOutline size={50} color="grey" />
