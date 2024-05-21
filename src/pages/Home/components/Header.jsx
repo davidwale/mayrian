@@ -52,7 +52,7 @@ const Header = () => {
           transition={{ duration: 1 }}
         />
       </AnimatePresence>
-      <div className="absolute inset-0 bg-black bg-opacity-50 flex pt-64 justify-between p-8">
+      <div className="absolute inset-0 bg-black bg-opacity-50 flex pt-52 2xl:pt-96 justify-between p-8">
         <div className="text-white">
           <motion.div
             key={currentIndex}
@@ -62,13 +62,13 @@ const Header = () => {
             transition={{ duration: 0.5 }}
           >
             <h1 className="2xl:text-8xl text-6xl font-medium">Project Tile</h1>
-            <p className="w-[400px] mt-32 font-light">
+            <p className="w-[400px] mt-32 2xl:text-3xl 2xl:w-[480px] font-light">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mollis mollis enim,
               at mattis metus consectetur eget. Nulla tempor condimentum eros, non eleifend leo venenatis et.
             </p>
           </motion.div>
         </div>
-        <div className="text-white w-96">
+        <div className="text-white 2xl:w-[40rem] w-96">
           <motion.div
             key={currentIndex}
             initial={{ opacity: 0, x: 50 }}
@@ -77,17 +77,17 @@ const Header = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="flex">
-              <p className="text-xl mr-4">{currentImage.id}</p>
+              <p className="text-xl 2xl:text-6xl 2xl:mb-1 mr-4">{currentImage.id}</p>
               <div className="w-full h-0.5 flex items-center mt-3 bg-gray-800">
                 <motion.div
-                  className="h-1 bg-white"
+                  className="h-1 2xl:h-2 bg-white"
                   style={{ width: `${progressBarWidth}%` }}
                   transition={{ duration: 5, ease: 'linear' }}
                 />
               </div>
             </div>
             <br />
-            <p>{currentImage.text}</p>
+            <p className='2xl:text-5xl'>{currentImage.text}</p>
           </motion.div>
           <motion.div className="mt-40">
             <h1 className="2xl:text-8xl text-6xl float-right font-medium">{currentImage.id}</h1>
