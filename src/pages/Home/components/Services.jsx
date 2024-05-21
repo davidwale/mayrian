@@ -6,7 +6,7 @@ const services = [
   { id: 2, src: '/images/service-img-2.png', title: 'Education Purpose' },
   { id: 3, src: '/images/service-img-3.png', title: 'MarketPlace' },
   { id: 4, src: '/images/service-img-4.png', title: 'Health Facility' },
-  { id: 4, src: '/images/service-img-5.png', title: 'Health Facility' },
+  { id: 5, src: '/images/service-img-5.png', title: 'Health Facility' },
 ];
 
 const Services = () => {
@@ -34,7 +34,7 @@ const Services = () => {
 
   return (
     <div className="relative w-full flex flex-col items-center justify-center overflow-hidden">
-      <h1 className="text-white text-5xl font-bold text-center my-10">Our Services</h1>
+      <h1 className="text-white text-5xl 2xl:my-14 2xl:text-7xl 3xl:text-9xl font-bold text-center my-10">Our Services</h1>
       <div className="relative w-full flex items-center justify-center overflow-hidden">
         <div
           ref={sliderRef}
@@ -46,16 +46,16 @@ const Services = () => {
               className="flex-shrink-0 w-full h-full flex items-center justify-center"
               style={{ width: '33.33%' }} 
             >
-              <img src={service.src} alt={service.title} className="w-full h-64 object-cover" />
+              <img src={service.src} alt={service.title} className="w-full h-64 2xl:h-96 object-cover" />
             </div>
           ))}
         </div>
       </div>
-      <div className="flex my-10 w-full justify-center">
+      <div className="flex my-10 2xl:text-6xl w-full justify-center">
         <p className='text-white'>1</p>
-        <div className="w-40 h-0.5 flex items-center mt-3 mx-4 bg-gray-800">
+        <div className="w-40 2xl:w-[50rem] 2xl:h-1.5 h-0.5 2xl:mt-6 flex items-center mt-3 mx-4 bg-gray-800">
           <motion.div
-            className="h-1 bg-white"
+            className="h-1 2xl:h-3 bg-white"
             style={{ width: `${progressBarWidth}%` }}
             transition={{ duration: 5, ease: 'linear' }}
           />

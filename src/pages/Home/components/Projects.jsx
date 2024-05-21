@@ -11,17 +11,17 @@ const projects = [
 
 const Projects = () => {
   return (
-    <div className="flex flex-col items-center justify-center py-10 min-h-screen">
-      <h1 className="text-white text-5xl font-bold mb-10">Our Projects</h1>
-      <div className="grid grid-cols-3 gap-4 w-full max-w-7xl px-4 h-full">
-        <div className="flex flex-col justify-between h-full">
+    <div className="flex flex-col items-center w-full justify-center py-10">
+      <h1 className="text-white text-5xl 2xl:my-14 2xl:text-7xl 3xl:text-9xl font-bold mb-10">Our Projects</h1>
+      <div className="grid grid-cols-3 gap-4 w-full px-4 h-full">
+        <div className="flex flex-col h-full">
           <ProjectImage project={projects[0]} bottom />
           <ProjectImage project={projects[3]} />
         </div>
         <div className="flex flex-col h-full">
           <ProjectImage project={projects[2]} fullHeight />
         </div>
-        <div className="flex flex-col justify-between h-full">
+        <div className="flex flex-col h-full">
           <ProjectImage project={projects[1]} bottom />
           <ProjectImage project={projects[4]} />
         </div>
@@ -31,7 +31,7 @@ const Projects = () => {
 };
 
 const ProjectImage = ({ project, fullHeight, bottom }) => (
-  <div className={`overflow-hidden cursor-pointer bg-white ${fullHeight ? 'flex-grow' : 'h-64'} ${bottom ? 'mb-4' : ''} `}>
+  <div className={`overflow-hidden cursor-pointer bg-white ${fullHeight ? 'flex-grow' : ''} ${bottom ? 'mb-4' : ''} `}>
     <motion.div
       whileHover={{ scale: 1.1 }}
       transition={{ type: 'spring', stiffness: 100, damping: 10 }}
